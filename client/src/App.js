@@ -6,7 +6,7 @@ import AddStudents from "./Teachers/components/pages/AddStudents";
 import WeeklyAgenda from "./Teachers/components/pages/WeeklyAgenda";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "./App.css";
-// import "./styles/styles.scss";
+import "./styles/styles.scss";
 
 function App() {
   return (
