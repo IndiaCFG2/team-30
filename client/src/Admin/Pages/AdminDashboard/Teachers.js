@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 var firebase = require("firebase");
 
-export default function Teachers() {
+export default function Teachers(props) {
   const [teachers, setTeachers] = useState([]);
 
   useEffect(() => {
@@ -20,6 +20,20 @@ export default function Teachers() {
         setTeachers(teachers_list);
       });
   }, []);
+
+  const deleteTeacher = (id) => {
+    firebase
+      .firestore()
+      .collection("Teachers")
+      .doc(id)
+      .delete()
+      .then(() => {
+        console.log("Teacher Deleted");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
   return (
     <div>
@@ -39,16 +53,31 @@ export default function Teachers() {
               <th>Mobile Number</th>
               <th>Subject</th>
               <th>Email</th>
+              <th>Update</th>
+              <th>Delete</th>
             </tr>
           </thead>
           <tbody>
             {Object.keys(teachers).map((id) => {
               return (
                 <tr key={id}>
-                  <td>{teachers[id].name}</td>
-                  <td>{teachers[id].number}</td>
-                  <td>{teachers[id].subject}</td>
+                  <td>{teachers[id].Name || teachers[id].name}</td>
+                  <td>{teachers[id]["Ph no"] || teachers[id].number}</td>
+                  <td>{teachers[id].Subject || teachers[id].subject}</td>
                   <td>{teachers[id].email}</td>
+                  <td>
+                    <Link to={`/editTeacher/${id}`} className="btn btn-primary">
+                      Update
+                    </Link>
+                  </td>
+                  <td>
+                    <button
+                      onClick={deleteTeacher(teachers[id].email)}
+                      className="btn btn-danger"
+                    >
+                      Delete
+                    </button>
+                  </td>
                 </tr>
               );
             })}
