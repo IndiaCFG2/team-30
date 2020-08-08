@@ -37,7 +37,7 @@ export default function HomePage() {
           left: "580px",
         }}
       >
-        Login Page
+        Welcome to EducationON!
       </h1>
       <Grid container>
         <Grid item xs={5}>
