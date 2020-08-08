@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Redirect } from "react-router-dom";
 var firebase = require("firebase");
 
 const AddTeacher = (props) => {
@@ -21,8 +22,8 @@ const AddTeacher = (props) => {
     e.preventDefault();
     console.log("I am here..", state);
     await firebase.firestore().collection("Teachers").add(state);
-    await props.setSubmitted("1");
     console.log("Done adding!");
+    window.location.href = "http://localhost:3000/admin/dashboard";
   };
 
   const { name, number, subject, email } = state;
