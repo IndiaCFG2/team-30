@@ -11,13 +11,11 @@ import Header from "../layout/Header";
 const AppRouter = () => (
   <div>
     <Header headerTitle={"LEND A HAND"} />
-    <Switch>
-      <Route exact path="/teacherLogin" component={Login} />
-      <Route exact path="/teachers/dashboard" component={Dashboard} />
-      <Route exact path="/teachers/upload" component={Upload} />
-      <Route exact path="/teachers/addStudents" component={AddStudents} />
-      <Route exact path="/teachers/weeklyAgenda" component={WeeklyAgenda} />
-    </Switch>
+    <Route exact path="/teacherLogin" component={Login} />
+    <Route exact path="/teachers/dashboard" component={Dashboard} />
+    <Route exact path="/teachers/upload" component={Upload} />
+    <Route exact path="/teachers/addStudents" component={AddStudents} />
+    <Route exact path="/teachers/weeklyAgenda" component={WeeklyAgenda} />
   </div>
 );
 

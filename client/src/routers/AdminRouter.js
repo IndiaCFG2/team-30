@@ -7,12 +7,10 @@ import AdminDashboard from "../Admin/Pages/AdminDashboard/AdminDashboard";
 
 const AdminRouter = () => (
   <div>
-    <Switch>
-      <Route exact path="/adminLogin" component={AdminLogin} />
-      <Route exact path="/admin/dashboard" component={AdminDashboard} />
-      <Route exact path="/admin/addTeacher" component={AddTeacher} />
-      {/* <Route exact path="/admin/editTeacher" component={} /> */}
-    </Switch>
+    <Route exact path="/adminLogin" component={AdminLogin} />
+    <Route exact path="/admin/dashboard" component={AdminDashboard} />
+    <Route exact path="/admin/addTeacher" component={AddTeacher} />
+    {/* <Route exact path="/admin/editTeacher" component={} /> */}
   </div>
 );
 

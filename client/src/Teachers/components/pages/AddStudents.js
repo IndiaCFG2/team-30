@@ -2,6 +2,7 @@ import React, { useRef, useState } from "react";
 import { ValidatorForm, TextValidator } from "react-material-ui-form-validator";
 import axios from "axios";
 import { Button } from "@material-ui/core";
+import Header from "../../../layout/Header";
 let firebase = require("firebase");
 
 const AddStudents = () => {
@@ -56,6 +57,7 @@ const AddStudents = () => {
   };
   return (
     <div>
+      <Header headerTitle={"LEND A HAND"} />
       <ValidatorForm useref="form" onSubmit={onSubmit}>
         <TextValidator
           style={{ margin: "15px", width: "80%" }}

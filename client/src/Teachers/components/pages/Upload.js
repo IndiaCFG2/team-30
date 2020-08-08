@@ -3,6 +3,7 @@ import { ValidatorForm, TextValidator } from "react-material-ui-form-validator";
 import { Button } from "@material-ui/core";
 import ProgressBar from "./progressBar";
 import { uploadFileToFirebaseStorage } from "./FirebaseFunctions";
+import Header from "../../../layout/Header";
 
 var firebase = require("firebase");
 
@@ -86,6 +87,8 @@ const Upload = () => {
 
   return (
     <div>
+      <Header headerTitle={"LEND A HAND"} />
+
       <ValidatorForm useref="form" onSubmit={onSubmit}>
         <TextValidator
           style={{ margin: "15px", width: "80%" }}

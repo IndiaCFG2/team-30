@@ -17,6 +17,7 @@ import {
   TableSortLabel,
   Grid,
 } from "@material-ui/core";
+import Header from "../../../layout/Header";
 
 var firebase = require("firebase");
 
@@ -80,6 +81,8 @@ const WeeklyAgenda = () => {
 
   return (
     <div>
+      <Header headerTitle={"LEND A HAND"} />
+
       <div className="items" style={{ margin: "30px" }}>
         <Grid container>
           <Grid item xs={2}>
