@@ -79,6 +79,10 @@ const WeeklyAgenda = () => {
     setMaterials(temp);
   };
 
+  const sendMsg = () => {
+    console.log("sendMsg called!!");
+  };
+
   return (
     <div>
       <Header headerTitle={"LEND A HAND"} />
@@ -199,6 +203,13 @@ const WeeklyAgenda = () => {
               >
                 Link&nbsp;
               </TableCell>
+              <TableCell
+                id="TableCell"
+                align="center"
+                style={{ cursor: "pointer" }}
+              >
+                Notify
+              </TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -209,10 +220,15 @@ const WeeklyAgenda = () => {
                 </TableCell>
                 <TableCell align="center">{material.subject}</TableCell>
                 <TableCell align="center">{material.classno}</TableCell>
-                <TableCell align="center">
+                <TableCell align="center" maxWidth>
                   <a href={material.link} target="__blank__">
-                    {material.link}
+                    {material.link.slice(0, 30)}
                   </a>
+                </TableCell>
+                <TableCell align="center">
+                  <Button variant="outlined" color="primary" onClick={sendMsg}>
+                    Send Msg
+                  </Button>
                 </TableCell>
               </StyledTableRow>
             ))}

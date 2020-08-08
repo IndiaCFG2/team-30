@@ -1,13 +1,73 @@
 import React, { useRef, useState } from "react";
 import { ValidatorForm, TextValidator } from "react-material-ui-form-validator";
 import axios from "axios";
-import { Button } from "@material-ui/core";
+import { withStyles, makeStyles } from "@material-ui/core/styles";
 import Header from "../../../layout/Header";
+
+import {
+  InputLabel,
+  MenuItem,
+  Select,
+  Button,
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+  Paper,
+  Modal,
+  TableSortLabel,
+  Grid,
+  position,
+  Typography,
+  Link,
+  Avatar,
+  CssBaseline,
+  FormControlLabel,
+  Container,
+  TextField,
+} from "@material-ui/core";
+
+function Copyright() {
+  return (
+    <Typography variant="body2" color="textSecondary" align="center">
+      {"Copyright © "}
+      <Link color="inherit" href="https://material-ui.com/">
+        Your Website
+      </Link>{" "}
+      {new Date().getFullYear()}
+      {"."}
+    </Typography>
+  );
+}
+
+const useStyles = makeStyles((theme) => ({
+  paper: {
+    marginTop: theme.spacing(8),
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+  },
+  avatar: {
+    margin: theme.spacing(1),
+    backgroundColor: theme.palette.secondary.main,
+  },
+  form: {
+    width: "100%", // Fix IE 11 issue.
+    marginTop: theme.spacing(1),
+  },
+  submit: {
+    margin: theme.spacing(3, 0, 2),
+  },
+}));
+
 let firebase = require("firebase");
 
 const AddStudents = () => {
   let db = firebase.firestore();
   console.log(db);
+  const classes = useStyles();
   const [studentName, setTopic] = useState("");
   const [rollno, setSubject] = useState("");
   const [classno, setClassno] = useState("");
@@ -55,95 +115,104 @@ const AddStudents = () => {
     let temp = await db.collection("students").add(students1);
     console.log("data added!!");
   };
+
   return (
     <div>
       <Header headerTitle={"LEND A HAND"} />
-      <ValidatorForm useref="form" onSubmit={onSubmit}>
-        <TextValidator
-          style={{ margin: "15px", width: "80%" }}
-          id="studentName"
-          label="Student Name"
-          variant="outlined"
-          value={studentName}
-          validators={["required"]}
-          errorMessages={["this field is required"]}
-          required={true}
-          onChange={(e) => {
-            setTopic(e.target.value);
-          }}
-        />
+      <container component="main" maxWidth="xs">
+        <CssBaseline />
+        <div className={classes.paper}>
+          <Avatar className={classes.avatar}></Avatar>
 
-        <TextValidator
-          style={{ margin: "15px", width: "80%" }}
-          id="rollno"
-          label="rollno"
-          variant="outlined"
-          value={rollno}
-          required
-          onChange={(e) => {
-            setSubject(e.target.value);
-          }}
-        />
-
-        <TextValidator
-          style={{ margin: "15px", width: "80%" }}
-          id="classno"
-          label="classno"
-          variant="outlined"
-          value={classno}
-          validators={["required"]}
-          errorMessages={["this field is required"]}
-          required={true}
-          onChange={(e) => {
-            setClassno(e.target.value);
-          }}
-        />
-        <TextValidator
-          style={{ margin: "15px", width: "80%" }}
-          id="phoneno"
-          label="phoneno"
-          variant="outlined"
-          value={phoneno}
-          validators={["required"]}
-          errorMessages={["this field is required"]}
-          required={true}
-          onChange={(e) => {
-            setLink(e.target.value);
-          }}
-        />
-        <TextValidator
-          style={{ margin: "15px", width: "80%" }}
-          id="school"
-          label="school Name"
-          variant="outlined"
-          value={schoolName}
-          validators={["required"]}
-          errorMessages={["this field is required"]}
-          required={true}
-          onChange={(e) => {
-            setLink(e.target.value);
-          }}
-        />
-        <TextValidator
-          style={{ margin: "15px", width: "80%" }}
-          id="address"
-          label="Address"
-          variant="outlined"
-          value={address}
-          validators={["required"]}
-          errorMessages={["this field is required"]}
-          required={true}
-          onChange={(e) => {
-            setAddress(e.target.value);
-          }}
-        />
-        <Button variant="contained" color="primary" onClick={findMe}>
-          Locate me!
-        </Button>
-        <Button variant="contained" color="primary" type="submit">
-          submit
-        </Button>
-      </ValidatorForm>
+          <ValidatorForm useref="form" onSubmit={onSubmit}>
+            <TextValidator
+              style={{ margin: "15px", width: "80%" }}
+              id="studentName"
+              margin="normal"
+              autoFocus
+              label="Student Name"
+              variant="outlined"
+              value={studentName}
+              validators={["required"]}
+              errorMessages={["this field is required"]}
+              required={true}
+              onChange={(e) => {
+                setTopic(e.target.value);
+              }}
+            />
+            <TextValidator
+              style={{ margin: "15px", width: "80%" }}
+              id="rollno"
+              label="Roll Number"
+              variant="outlined"
+              value={rollno}
+              required
+              onChange={(e) => {
+                setSubject(e.target.value);
+              }}
+            />
+            <TextValidator
+              style={{ margin: "15px", width: "80%" }}
+              id="classno"
+              label="Class Number"
+              variant="outlined"
+              value={classno}
+              validators={["required"]}
+              errorMessages={["this field is required"]}
+              required={true}
+              onChange={(e) => {
+                setClassno(e.target.value);
+              }}
+            />
+            <TextValidator
+              style={{ margin: "15px", width: "80%" }}
+              id="phoneno"
+              label="Phone Number"
+              variant="outlined"
+              value={phoneno}
+              validators={["required"]}
+              errorMessages={["this field is required"]}
+              required={true}
+              onChange={(e) => {
+                setLink(e.target.value);
+              }}
+            />
+            <TextValidator
+              style={{ margin: "15px", width: "80%" }}
+              id="school"
+              label="School Name"
+              variant="outlined"
+              value={schoolName}
+              validators={["required"]}
+              errorMessages={["this field is required"]}
+              required={true}
+              onChange={(e) => {
+                setLink(e.target.value);
+              }}
+            />
+            <TextValidator
+              style={{ margin: "15px", width: "80%" }}
+              id="address"
+              label="Address"
+              variant="outlined"
+              value={address}
+              validators={["required"]}
+              errorMessages={["this field is required"]}
+              required={true}
+              onChange={(e) => {
+                setAddress(e.target.value);
+              }}
+            />
+            <Button variant="contained" color="primary" onClick={findMe}>
+              Locate me!
+            </Button>
+            &nbsp;&nbsp;
+            <Button variant="contained" color="primary" type="submit">
+              submit
+            </Button>
+          </ValidatorForm>
+        </div>
+      </container>
     </div>
   );
 };
