@@ -1,7 +1,11 @@
 import React, { useRef, useState } from "react";
 import { ValidatorForm, TextValidator } from "react-material-ui-form-validator";
 import { Button } from "@material-ui/core";
+import ProgressBar from "./progressBar";
+import { uploadFileToFirebaseStorage } from './FirebaseFunctions';
+
 var firebase = require("firebase");
+
 const Upload = () => {
   var db = firebase.firestore();
   console.log(db);
@@ -9,6 +13,12 @@ const Upload = () => {
   const [subject, setSubject] = useState("");
   const [classno, setClassno] = useState("");
   const [link, setLink] = useState("");
+
+  const [fileInfo, setFileInfo] = useState("");
+  const [fileSizeInKB, setFileSize] = useState(100);
+  let [fileProgressPercentage, setProgress] = useState(0);
+  const [uploadedFileURL, setUploadedFileURL] = useState("");
+  const [showFileSizeError, setFileSizeError] = useState(false);
 
   const onSubmit = async () => {
     const material1 = {
@@ -41,6 +51,36 @@ const Upload = () => {
     //   .catch(function (error) {
     //     console.log("Error getting document: ", error);
     //   });
+  };
+
+  const handleFileChange = (e) => {
+    const fileDetails = e.target.files[0];
+    setProgress(5);
+    let fileSizeInKB = fileDetails.size / 1000;
+    const maxFileSizeInKB = 5000*100; // Kilobyte
+    if (fileSizeInKB > maxFileSizeInKB) {
+      setFileSizeError((status) => !status);
+      setFileSize(fileSizeInKB);
+    } else {
+      setFileSizeError(false);
+      uploadFileToFirebaseStorage(fileDetails, (result) => {
+        console.log(result);
+        if (result.progress) {
+          setProgress(result.progress);
+          if (result.progress > 99) {
+            // SetDisableNextBtn(false);
+          }
+          return;
+        }
+        if (result.url) {
+          setUploadedFileURL(result.url);
+          return;
+        }
+        if (result.error) {
+          // Handle error
+        }
+      });
+    }
   };
 
   return (
@@ -85,6 +125,27 @@ const Upload = () => {
             setClassno(e.target.value);
           }}
         />
+        <>
+          <div className="form-group mt-1" style={{  marginLeft: "15px", marginTop: "20px", marginBottom: "20px" }}>
+            <strong> Upload a file </strong>
+            <input
+              type="file"
+              className="form-control-file"
+              id="exampleFormControlFile1"
+              onChange={handleFileChange}
+              name="myfile"
+            />
+          </div>
+          <div className="form-group" style={{ marginLeft: "20px", marginTop: "20px", marginBottom: "10px" }}>
+            {showFileSizeError ? (
+              <span className="error_message">
+                File exceeds size limit
+              </span>
+            ) : (
+                <ProgressBar progressPercentage={fileProgressPercentage} />
+              )}
+          </div>
+        </>
         <TextValidator
           style={{ margin: "15px", width: "80%" }}
           id="link"
