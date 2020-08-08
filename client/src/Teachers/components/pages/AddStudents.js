@@ -19,8 +19,12 @@ const AddStudents = () => {
   const findMe = async () => {
     console.log("Find me clicked!");
     if (navigator.geolocation) {
-      await navigator.geolocation.getCurrentPosition(showPosition);
+      await navigator.geolocation.getCurrentPosition(await showPosition);
     }
+  };
+  async function showPosition(position) {
+    await setLat(position.coords.latitude);
+    await setLon(position.coords.longitude);
 
     console.log(lat);
     console.log(lon);
@@ -31,13 +35,10 @@ const AddStudents = () => {
         lat +
         ".json?access_token=pk.eyJ1IjoidWp3YWxrcGwiLCJhIjoiY2tkYTdvZG1kMGJlMjJybXpvaHJ0NDRieiJ9.mx5YB4-2ZKCXsLzOpC--og"
     );
-    console.log("address", temp.data.features[0].place_name);
-  };
-  async function showPosition(position) {
-    await setLat(position.coords.latitude);
-    await setLon(position.coords.longitude);
-
-    // console.log("Student is: ", students1);
+    if (temp.data.features[0]) {
+      console.log("address", temp.data.features[0].place_name);
+      setAddress(temp.data.features[0].place_name);
+    }
   }
 
   const onSubmit = async () => {
@@ -46,9 +47,11 @@ const AddStudents = () => {
       rollno: rollno,
       classno: classno,
       phoneno: phoneno,
+      schoolName: schoolName,
+      address: address,
     };
 
-    // let temp = await db.collection("students").add(students1);
+    let temp = await db.collection("students").add(students1);
     console.log("data added!!");
   };
   return (
@@ -57,7 +60,7 @@ const AddStudents = () => {
         <TextValidator
           style={{ margin: "15px", width: "80%" }}
           id="studentName"
-          label="studentName"
+          label="Student Name"
           variant="outlined"
           value={studentName}
           validators={["required"]}
@@ -99,6 +102,19 @@ const AddStudents = () => {
           label="phoneno"
           variant="outlined"
           value={phoneno}
+          validators={["required"]}
+          errorMessages={["this field is required"]}
+          required={true}
+          onChange={(e) => {
+            setLink(e.target.value);
+          }}
+        />
+        <TextValidator
+          style={{ margin: "15px", width: "80%" }}
+          id="school"
+          label="school Name"
+          variant="outlined"
+          value={schoolName}
           validators={["required"]}
           errorMessages={["this field is required"]}
           required={true}
