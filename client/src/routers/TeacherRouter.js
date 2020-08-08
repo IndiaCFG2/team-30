@@ -9,7 +9,6 @@ import WeeklyAgenda from "../Teachers/components/pages/WeeklyAgenda";
 import Header from '../layout/Header';
 
 const AppRouter = () => (
-    <BrowserRouter>
         <div>
             <Header/>
             <Switch>
@@ -20,7 +19,6 @@ const AppRouter = () => (
                 <Route exact path="/teachers/weeklyAgenda" component={WeeklyAgenda} />
             </Switch>
         </div>
-    </BrowserRouter>
 );
 
 export default AppRouter;

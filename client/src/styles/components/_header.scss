@@ -1,0 +1,16 @@
+.header{
+    font-size: 5rem;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    background-color: #009090;
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.headerNavbar{
+    align-items: center;
+  display: flex;
+  justify-content: space-between;
+  padding: 0.4rem 0;
+}

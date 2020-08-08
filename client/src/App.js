@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, Redirect, BrowserRouter } from "react-router-dom";
 
 import AdminLogin from './Admin/Pages/AdminLogin';
 import AdminDashboard from './Admin/Pages/AdminDashboard';
@@ -10,7 +10,10 @@ import "./styles/styles.scss";
 
 function App() {
   return (
-      <TeacherRouter/>    
+    <BrowserRouter>
+      <TeacherRouter/>
+    </BrowserRouter>
+          
   );
   // <div className="App">
     //   <Router>
