@@ -136,7 +136,7 @@ const Upload = () => {
               name="myfile"
             />
           </div>
-          <div className="form-group" style={{ marginLeft: "20px", marginTop: "20px", marginBottom: "10px" }}>
+          <div className="form-group" style={{ marginLeft: "20px", marginTop: "5px", marginBottom: "5px" }}>
             {showFileSizeError ? (
               <span className="error_message">
                 File exceeds size limit
@@ -149,6 +149,16 @@ const Upload = () => {
         <TextValidator
           style={{ margin: "15px", width: "80%" }}
           id="link"
+          label="Uploaded Link"
+          variant="outlined"
+          value={uploadedFileURL}
+          validators={["required"]}
+          errorMessages={["this field is required"]}
+          required={true}
+        />
+        {/* <TextValidator
+          style={{ margin: "15px", width: "80%" }}
+          id="link"
           label="Link"
           variant="outlined"
           value={link}
@@ -158,7 +168,7 @@ const Upload = () => {
           onChange={(e) => {
             setLink(e.target.value);
           }}
-        />
+        /> */}
         <Button variant="contained" color="primary" type="submit">
           submit
         </Button>
