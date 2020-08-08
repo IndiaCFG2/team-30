@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
 import "./App.css";
 
 import Login from "./Teachers/components/pages/Login";
@@ -8,14 +8,15 @@ import Upload from "./Teachers/components/pages/Upload";
 import AddStudents from "./Teachers/components/pages/AddStudents";
 import WeeklyAgenda from "./Teachers/components/pages/WeeklyAgenda";
 
-import AdminLogin from './Admin/components/Pages/AdminLogin';
-import AdminDashboard from './Admin/components/Pages/AdminDashboard';
+import AdminLogin from './Admin/Pages/AdminLogin';
+import AdminDashboard from './Admin/Pages/AdminDashboard';
 
 function App() {
   return (
     <div className="App">
       <Router>
         <Switch>
+          {/* <Redirect exact from="/" to="/teacherLogin" /> */}
           <Route exact path="/teacherLogin" component={Login} />
           <Route exact path="/teachers/dashboard" component={Dashboard} />
           <Route exact path="/teachers/upload" component={Upload} />
