@@ -4,7 +4,21 @@ export const uploadFileToFirebaseStorage = (iconFile, callback) => {
     const fileName = iconFile.name;
     const storage = firebase.storage();
     const storageRef = storage.ref();
-    const uploadTask = storageRef.child("/documents/" + fileName).put(iconFile);
+
+    const getFileType = iconFile.type;
+    let storagefolderName = '/documents/';
+    switch(getFileType.toLowerCase()) {
+        case 'audio/mpeg':
+            storagefolderName = '/audios/';
+            break;
+        case 'video/mp4':
+            storagefolderName = '/videos/';
+            break;
+        default:
+            break
+    }
+
+    const uploadTask = storageRef.child(`${storagefolderName}${fileName}`).put(iconFile);
 
     uploadTask.on("state_changed",
         (snapshot) => {     // progrss function ....
