@@ -10,7 +10,7 @@ import Header from "../layout/Header";
 
 const AppRouter = () => (
   <div>
-    <Header />
+    <Header headerTitle={"LEND A HAND"} />
     <Switch>
       <Route exact path="/teacherLogin" component={Login} />
       <Route exact path="/teachers/dashboard" component={Dashboard} />
