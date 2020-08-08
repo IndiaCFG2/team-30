@@ -1,0 +1,17 @@
+body {
+    font-family: 'Raleway', sans-serif;
+    font-size: $msize;
+    background-color: $grey_light;
+}
+
+h1 {
+    font-size: 5rem;
+}
+
+button{
+    cursor: pointer;
+}
+
+button:disabled{
+    cursor: default;
+}
