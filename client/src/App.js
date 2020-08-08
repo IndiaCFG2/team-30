@@ -1,6 +1,5 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
-import "./App.css";
 
 import Login from "./Teachers/components/pages/Login";
 import Dashboard from "./Teachers/components/pages/Dashboard";
@@ -10,6 +9,9 @@ import WeeklyAgenda from "./Teachers/components/pages/WeeklyAgenda";
 
 import AdminLogin from './Admin/Pages/AdminLogin';
 import AdminDashboard from './Admin/Pages/AdminDashboard';
+
+import "./App.css";
+import "./styles/styles.scss";
 
 function App() {
   return (
