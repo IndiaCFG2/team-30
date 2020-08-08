@@ -17,7 +17,7 @@ var firebaseConfig = {
 };
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
-firebase.analytics();
+// firebase.analytics();
 
 ReactDOM.render(<App />, document.getElementById("root"));
 
