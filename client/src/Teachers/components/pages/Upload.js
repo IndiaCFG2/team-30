@@ -74,6 +74,7 @@ const Upload = () => {
         }
         if (result.url) {
           setUploadedFileURL(result.url);
+          setLink(result.url);
           return;
         }
         if (result.error) {
@@ -151,10 +152,13 @@ const Upload = () => {
           id="link"
           label="Uploaded Link"
           variant="outlined"
-          value={uploadedFileURL}
+          value={link}
           validators={["required"]}
           errorMessages={["this field is required"]}
           required={true}
+          onChange={(e) => {
+            setLink(e.target.value);
+          }}
         />
         {/* <TextValidator
           style={{ margin: "15px", width: "80%" }}
