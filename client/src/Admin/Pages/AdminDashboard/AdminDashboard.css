@@ -1,0 +1,9 @@
+.admin_dashboard_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.admin_dashboard_container .title {
+    color: #0079c2;
+}
