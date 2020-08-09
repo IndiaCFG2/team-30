@@ -26,7 +26,7 @@ export default function Teachers(props) {
     await firebase
       .firestore()
       .collection("Teachers")
-      .where("email", "==", email)
+      .where("email", "==", "sathvikbk123@gmail.com")
       .get()
       .then(function (querySnapshot) {
         querySnapshot.forEach(async function (doc) {

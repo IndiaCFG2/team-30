@@ -101,6 +101,11 @@ const Dashboard = () => {
               <MenuItem value={"3"}>3</MenuItem>
               <MenuItem value={"4"}>4</MenuItem>
               <MenuItem value={"5"}>5</MenuItem>
+              <MenuItem value={"6"}>6</MenuItem>
+              <MenuItem value={"7"}>7</MenuItem>
+              <MenuItem value={"8"}>8</MenuItem>
+              <MenuItem value={"9"}>9</MenuItem>
+              <MenuItem value={"10"}>10</MenuItem>
             </Select>
           </Grid>
           <Grid item xs={2}>
@@ -173,6 +178,13 @@ const Dashboard = () => {
                 style={{ cursor: "pointer" }}
                 align="center"
               >
+                Date&nbsp;
+              </TableCell>
+              <TableCell
+                id="TableCell"
+                style={{ cursor: "pointer" }}
+                align="center"
+              >
                 Link&nbsp;
               </TableCell>
             </TableRow>
@@ -185,6 +197,7 @@ const Dashboard = () => {
                 </TableCell>
                 <TableCell align="center">{material.subject}</TableCell>
                 <TableCell align="center">{material.classno}</TableCell>
+                <TableCell align="center">{material.date}</TableCell>
                 <TableCell align="center">
                   <a href={material.link} target="__blank__">
                     {material.link.slice(0, 30)}

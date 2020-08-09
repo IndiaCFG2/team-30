@@ -23,7 +23,7 @@ const EditTeacher = (props) => {
         setPhno(userno);
         console.log("fetUser function: " + userno);
         db.collection("Teachers")
-          .where("number", "==", userno)
+          .where("number", "==", "8904449808")
           .get()
           .then(function (querySnapshot) {
             querySnapshot.forEach(async function (doc) {
