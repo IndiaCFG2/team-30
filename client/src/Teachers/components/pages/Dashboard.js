@@ -187,7 +187,7 @@ const Dashboard = () => {
                 <TableCell align="center">{material.classno}</TableCell>
                 <TableCell align="center">
                   <a href={material.link} target="__blank__">
-                    {material.link}
+                    {material.link.slice(0, 30)}
                   </a>
                 </TableCell>
               </StyledTableRow>

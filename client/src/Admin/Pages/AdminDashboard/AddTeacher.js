@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Redirect } from "react-router-dom";
+import AdminHeader from "../../../layout/AdminHeader";
 var firebase = require("firebase");
 
 const AddTeacher = (props) => {
@@ -30,6 +31,7 @@ const AddTeacher = (props) => {
 
   return (
     <div>
+      <AdminHeader headerTitle={"LEND A HAND"} />
       <h3 className="text-center">Add Teacher</h3>
       <form style={{ paddingLeft: "20px" }} onSubmit={addTeacher}>
         <input

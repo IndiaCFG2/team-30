@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import axios from "axios";
 import { withStyles, makeStyles } from "@material-ui/core/styles";
 import {
   InputLabel,
@@ -79,8 +80,20 @@ const WeeklyAgenda = () => {
     setMaterials(temp);
   };
 
-  const sendMsg = () => {
+  const sendMsg = (myurl) => {
     console.log("sendMsg called!!");
+    const data = {
+      url: myurl,
+      no: "8904449808",
+    };
+    const config = {
+      headers: {
+        "Content-type": "application/json",
+      },
+    };
+    const url = "123";
+    const no = "";
+    axios.post("/api/sendWhatsapp", data, config);
   };
 
   return (
@@ -178,27 +191,27 @@ const WeeklyAgenda = () => {
               <TableCell
                 id="TableCell"
                 align="center"
-                style={{ cursor: "pointer" }}
+                style={{ cursor: "pointer", color: "#fff" }}
               >
                 Topic{" "}
               </TableCell>
               <TableCell
                 id="TableCell"
                 align="center"
-                style={{ cursor: "pointer" }}
+                style={{ cursor: "pointer", color: "#fff" }}
               >
                 Subject
               </TableCell>
               <TableCell
                 id="TableCell"
-                style={{ cursor: "pointer" }}
+                style={{ cursor: "pointer", color: "#fff" }}
                 align="center"
               >
                 Class&nbsp;
               </TableCell>
               <TableCell
                 id="TableCell"
-                style={{ cursor: "pointer" }}
+                style={{ cursor: "pointer", color: "#fff" }}
                 align="center"
               >
                 Link&nbsp;
@@ -206,7 +219,7 @@ const WeeklyAgenda = () => {
               <TableCell
                 id="TableCell"
                 align="center"
-                style={{ cursor: "pointer" }}
+                style={{ cursor: "pointer", color: "#fff" }}
               >
                 Notify
               </TableCell>
@@ -226,7 +239,13 @@ const WeeklyAgenda = () => {
                   </a>
                 </TableCell>
                 <TableCell align="center">
-                  <Button variant="outlined" color="primary" onClick={sendMsg}>
+                  <Button
+                    variant="outlined"
+                    color="primary"
+                    onClick={() => {
+                      sendMsg(material.link);
+                    }}
+                  >
                     Send Msg
                   </Button>
                 </TableCell>

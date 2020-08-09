@@ -17,6 +17,7 @@ import Dashboard from "./Teachers/components/pages/Dashboard";
 import Upload from "./Teachers/components/pages/Upload";
 import WeeklyAgenda from "./Teachers/components/pages/WeeklyAgenda";
 import AddStudents from "./Teachers/components/pages/AddStudents";
+import AdminUpload from "./Admin/Pages/AdminUpload";
 import EditTeacher from "./Admin/Pages/AdminDashboard/EditTeacher";
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
         <Route exact path="/admin/dashboard" component={AdminDashboard} />
         <Route exact path="/admin/addTeacher" component={AddTeacher} />
         <Route exact path="/admin/editTeacher" component={EditTeacher} />
+        <Route exact path="/admin/upload" component={AdminUpload} />
         {/* <AdminRouter /> */}
         {/* <TeacherRouter /> */}
         <Route exact path="/teacherLogin" component={Login} />
