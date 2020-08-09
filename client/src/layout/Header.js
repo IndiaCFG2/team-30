@@ -4,7 +4,6 @@ import "../";
 
 const Header = ({ headerTitle }) => (
   <header>
-    {/* <div className="header">{headerTitle}</div> */}
     <div style={{ color: "red", padding: "20px", background: "#864501" }}>
       <center>
         <h5 className="heading">Lend a Hand India</h5>

@@ -50,15 +50,13 @@ export default function Teachers(props) {
 
   return (
     <div>
-      <div className="jumbotron jumbotron-fluid">
-        <div className="container">
-          <h1 className="display-4">Admin Panel</h1>
-        </div>
-      </div>
-      <Link to="/admin/addTeacher">
-        <button className="btn btn-primary mb-3 ml-4">Add Teacher</button>
-      </Link>
       <div className="row">
+        <div
+          style={{ marginLeft: "580px" }}
+          className="d-flex justify-content-center align-items-center mb-3 mt-3"
+        >
+          <h2>List of Teachers</h2>
+        </div>
         <table className="table table-borderless table-striped ml-5 mr-5">
           <thead className="thead-light">
             <tr>
