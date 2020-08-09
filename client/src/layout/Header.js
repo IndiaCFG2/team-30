@@ -35,7 +35,7 @@ const Header = ({ headerTitle }) => (
         to="/teachers/weeklyAgenda"
         activeClassName="is-active"
       >
-        Weekly Agenda
+        Share Material
       </NavLink>
     </div>
   </header>

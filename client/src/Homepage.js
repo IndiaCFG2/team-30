@@ -31,10 +31,10 @@ export default function HomePage() {
       <h1
         style={{
           fontSize: "36px",
-          //   marginLeft: "550px",
+          // marginLeft: "550px",
           position: "absolute",
           top: "100px",
-          left: "580px",
+          left: "500px",
         }}
       >
         Welcome to EducationON!
@@ -53,8 +53,9 @@ export default function HomePage() {
                   Admin
                 </Typography>
                 <Typography variant="body2" color="textSecondary" component="p">
-                  Person who manages the whole content of the application along
-                  with assigning the user and also to load the data bulkly.
+                  The one who manages everything. <br />
+                  <br />
+                  <br />
                 </Typography>
               </CardContent>
             </CardActionArea>
@@ -80,7 +81,9 @@ export default function HomePage() {
                   Teacher
                 </Typography>
                 <Typography variant="body2" color="textSecondary" component="p">
-                  Person
+                  The one who inspires, motivates, encourages and educates
+                  learners. <br />
+                  <br />
                 </Typography>
               </CardContent>
             </CardActionArea>
