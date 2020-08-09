@@ -13,7 +13,7 @@ import { Link } from "react-router-dom";
 const useStyles = makeStyles({
   root: {
     maxWidth: 345,
-    marginLeft: 200,
+    marginLeft: 50,
     marginTop: 200,
   },
   media: {
@@ -40,7 +40,7 @@ export default function HomePage() {
         Welcome to EducationON!
       </h1>
       <Grid container>
-        <Grid item xs={5}>
+        <Grid item xs={4}>
           <Card className={classes.root}>
             <CardActionArea>
               <CardMedia
@@ -68,7 +68,7 @@ export default function HomePage() {
             </CardActions>
           </Card>
         </Grid>
-        <Grid item xs={5}>
+        <Grid item xs={4}>
           <Card className={classes.root}>
             <CardActionArea>
               <CardMedia
@@ -91,6 +91,34 @@ export default function HomePage() {
               <Link to="/teacherLogin">
                 <Button size="small" color="primary">
                   Teacher Login
+                </Button>
+              </Link>
+            </CardActions>
+          </Card>
+        </Grid>
+        <Grid item xs={4}>
+          <Card className={classes.root}>
+            <CardActionArea>
+              <CardMedia
+                className={classes.media}
+                image="https://th.bing.com/th/id/OIP.QDsRU5IRp9lnaNxIYgnxlAHaGv?pid=Api&rs=1"
+                title="Contemplative Reptile"
+              />
+              <CardContent>
+                <Typography gutterBottom variant="h5" component="h2">
+                  Student
+                </Typography>
+                <Typography variant="body2" color="textSecondary" component="p">
+                  The one who always thrives to improve himself under the
+                  guidance of an Instructor. <br />
+                  <br />
+                </Typography>
+              </CardContent>
+            </CardActionArea>
+            <CardActions>
+              <Link to="/students">
+                <Button size="small" color="primary">
+                  Access Content Here
                 </Button>
               </Link>
             </CardActions>

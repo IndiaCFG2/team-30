@@ -19,6 +19,7 @@ import WeeklyAgenda from "./Teachers/components/pages/WeeklyAgenda";
 import AddStudents from "./Teachers/components/pages/AddStudents";
 import AdminUpload from "./Admin/Pages/AdminUpload";
 import EditTeacher from "./Admin/Pages/AdminDashboard/EditTeacher";
+import Student from "./Student";
 
 function App() {
   return (
@@ -37,6 +38,8 @@ function App() {
         <Route exact path="/teachers/upload" component={Upload} />
         <Route exact path="/teachers/addStudents" component={AddStudents} />
         <Route exact path="/teachers/weeklyAgenda" component={WeeklyAgenda} />
+
+        <Route exact path="/students" component={Student} />
       </Switch>
     </BrowserRouter>
   );
