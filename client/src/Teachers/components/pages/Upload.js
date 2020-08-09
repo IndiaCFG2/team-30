@@ -161,17 +161,19 @@ const Upload = () => {
             ) : (
               <ProgressBar progressPercentage={fileProgressPercentage} />
             )}
+            <div>
+            {link}
+            </div>
           </div>
+          OR
         </>
         <TextValidator
           style={{ margin: "15px", width: "80%" }}
           id="link"
-          label="Uploaded Link"
+          label="Upload Link or genraterd link will appear"
           variant="outlined"
           value={link}
-          validators={["required"]}
           errorMessages={["this field is required"]}
-          required={true}
           onChange={(e) => {
             setLink(e.target.value);
           }}
