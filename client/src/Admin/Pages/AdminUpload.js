@@ -1,13 +1,13 @@
 import React, { useRef, useState } from "react";
 import { ValidatorForm, TextValidator } from "react-material-ui-form-validator";
 import { Button } from "@material-ui/core";
-import ProgressBar from "./progressBar";
-import { uploadFileToFirebaseStorage } from "./FirebaseFunctions";
-import Header from "../../../layout/Header";
+import ProgressBar from "../../Teachers/components/pages/progressBar/ProgressBar";
+import { uploadFileToFirebaseStorage } from "../../Teachers/components/pages/FirebaseFunctions";
+import AdminHeader from "../../layout/AdminHeader";
 
 var firebase = require("firebase");
 
-const Upload = () => {
+const AdminUpload = () => {
   var db = firebase.firestore();
   console.log(db);
   const [topic, setTopic] = useState("");
@@ -29,30 +29,9 @@ const Upload = () => {
       link: link,
     };
     console.log("Material is: ", material1);
-    // db.collection("materials")
-    //   .add(material1)
-    //   .then(function (docRef) {
-    //     console.log("Document written with ID: ", docRef.id);
-    //   })
-    //   .catch(function (error) {
-    //     console.error("Error adding document: ", error);
-    //   });
     let temp = await db.collection("materials").add(material1);
     console.log("data added!!");
     window.location.href = "/admin/dashboard";
-    // db.collection("materials")
-    //   .get()
-    //   .then(function (querySnapshot) {
-    //     if (querySnapshot.size > 0) {
-    //       // Contents of first document
-    //       console.log(querySnapshot.docs[0].data());
-    //     } else {
-    //       console.log("No such document!");
-    //     }
-    //   })
-    //   .catch(function (error) {
-    //     console.log("Error getting document: ", error);
-    //   });
   };
 
   const handleFileChange = (e) => {
@@ -88,7 +67,7 @@ const Upload = () => {
 
   return (
     <div>
-      <Header headerTitle={"LEND A HAND"} />
+      <AdminHeader headerTitle={"LEND A HAND"} />
 
       <ValidatorForm useref="form" onSubmit={onSubmit}>
         <TextValidator
@@ -176,19 +155,6 @@ const Upload = () => {
             setLink(e.target.value);
           }}
         />
-        {/* <TextValidator
-          style={{ margin: "15px", width: "80%" }}
-          id="link"
-          label="Link"
-          variant="outlined"
-          value={link}
-          validators={["required"]}
-          errorMessages={["this field is required"]}
-          required={true}
-          onChange={(e) => {
-            setLink(e.target.value);
-          }}
-        /> */}
         <Button variant="contained" color="primary" type="submit">
           submit
         </Button>
@@ -197,4 +163,4 @@ const Upload = () => {
   );
 };
 
-export default Upload;
+export default AdminUpload;
