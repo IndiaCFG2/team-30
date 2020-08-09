@@ -21,7 +21,19 @@ export default function Teachers(props) {
       });
   }, []);
 
-  const deleteTeacher = (id) => {
+  const deleteTeacher = async (email) => {
+    var id = "";
+    await firebase
+      .firestore()
+      .collection("Teachers")
+      .where("email", "==", email)
+      .get()
+      .then(function (querySnapshot) {
+        querySnapshot.forEach(async function (doc) {
+          // doc.data() is never undefined for query doc snapshots
+          id = doc.id;
+        });
+      });
     firebase
       .firestore()
       .collection("Teachers")
@@ -33,6 +45,7 @@ export default function Teachers(props) {
       .catch((err) => {
         console.log(err);
       });
+    window.location.href = "/admin/dashboard";
   };
 
   return (
@@ -66,13 +79,15 @@ export default function Teachers(props) {
                   <td>{teachers[id].Subject || teachers[id].subject}</td>
                   <td>{teachers[id].email}</td>
                   <td>
-                    <Link to={`/editTeacher/${id}`} className="btn btn-primary">
+                    <Link to="/admin/editTeacher" className="btn btn-primary">
                       Update
                     </Link>
                   </td>
                   <td>
                     <button
-                      onClick={deleteTeacher(teachers[id].email)}
+                      onClick={() => {
+                        deleteTeacher(teachers[id].email);
+                      }}
                       className="btn btn-danger"
                     >
                       Delete

@@ -17,6 +17,7 @@ import Dashboard from "./Teachers/components/pages/Dashboard";
 import Upload from "./Teachers/components/pages/Upload";
 import WeeklyAgenda from "./Teachers/components/pages/WeeklyAgenda";
 import AddStudents from "./Teachers/components/pages/AddStudents";
+import EditTeacher from "./Admin/Pages/AdminDashboard/EditTeacher";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
         <Route exact path="/adminLogin" component={AdminLogin} />
         <Route exact path="/admin/dashboard" component={AdminDashboard} />
         <Route exact path="/admin/addTeacher" component={AddTeacher} />
+        <Route exact path="/admin/editTeacher" component={EditTeacher} />
         {/* <AdminRouter /> */}
         {/* <TeacherRouter /> */}
         <Route exact path="/teacherLogin" component={Login} />

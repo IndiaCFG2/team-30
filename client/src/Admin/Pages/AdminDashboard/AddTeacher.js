@@ -38,7 +38,7 @@ const AddTeacher = (props) => {
           className="form-control mb-3"
           value={name}
           name="name"
-          placeholder="Enter Your Name"
+          placeholder="Enter Name"
         />
         <input
           type="text"
@@ -46,7 +46,7 @@ const AddTeacher = (props) => {
           onChange={handleChange}
           value={number}
           name="number"
-          placeholder="Enter Your Phone Number"
+          placeholder="Enter Phone Number"
         />
         <input
           type="text"
@@ -54,7 +54,7 @@ const AddTeacher = (props) => {
           onChange={handleChange}
           value={subject}
           name="subject"
-          placeholder="Enter Your Subject"
+          placeholder="Enter Subject"
         />
         <input
           type="text"
@@ -62,7 +62,7 @@ const AddTeacher = (props) => {
           onChange={handleChange}
           value={email}
           name="email"
-          placeholder="Enter Your Email"
+          placeholder="Enter Email"
         />
         <div className="form-group">
           <input
