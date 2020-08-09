@@ -11,7 +11,6 @@ const Login = () => {
 
   return (
     <div>
-      <Header headerTitle={"LEND A HAND"} />
       <div style={{ marginTop: "50px" }}>
         <StyledFirebaseAuth
           uiConfig={uiConfig}
